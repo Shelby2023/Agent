@@ -5,7 +5,6 @@
 - 智能客服问答：结合本地大模型和 RAG 知识库，回答产品使用、选购建议、故障排查、维护保养等问题。
 - 个性化使用报告：基于外部结构化数据生成用户月度使用情况分析与建议。
 
-当前仓库更接近教学 / 演示项目，已经具备完整的主链路，但仍存在一些 mock 数据和工程化缺口，适合用于学习 Agent、Prompt 编排、RAG 接入和本地模型部署方式。
 
 ## 1. 项目结构
 
@@ -117,7 +116,7 @@ embedding_model_name : qwen3-embedding:4b
 
 ## 5. 依赖安装
 
-当前仓库中的 `pyproject.toml` 尚未完整声明项目依赖，因此推荐先使用现有虚拟环境，或手动安装以下依赖：
+推荐先使用现有虚拟环境，或手动安装以下依赖：
 
 ```bash
 pip install streamlit langchain langgraph langchain-core langchain-community langchain-ollama langchain-chroma langchain-text-splitters pypdf pyyaml
@@ -209,7 +208,7 @@ python rag/vector_store.py
 
 ### 8.2 外部结构化数据
 
-`data/external/records.csv` 用于模拟用户月度使用记录，字段包括：
+`data/external/records.csv` 记录用户月度使用记录，字段包括：
 
 - 用户 ID
 - 用户特征
@@ -240,29 +239,7 @@ python rag/vector_store.py
 
 `app.py` 中通过 `write_stream(...)` 将 Agent 的流式输出逐字符展示到页面上，形成对话式交互体验。
 
-## 10. 当前已知限制
-
-这部分很重要，接手前建议先了解：
-
-1. 天气、用户位置、用户 ID、当前月份等工具当前是 mock 数据，返回值来自固定文本或随机选择，不是真实业务系统接入。
-2. `pyproject.toml` 还没有补齐实际依赖，环境复现能力有限。
-3. 向量库去重依赖 `md5.text`，只避免重复导入，不会清理“已修改文件”的旧向量数据。
-4. 仓库中包含 `.venv/`、`logs/`、`chroma_db/` 等运行产物，更适合本地演示，不适合作为干净的发布仓库。
-5. 项目尚未包含自动化测试、README 之外的部署说明和 CI 配置。
-6. 外部 CSV 使用手工解析方式读取，适合演示，不适合复杂生产数据场景。
-
-## 11. 后续优化建议
-
-如果准备继续演进，建议优先做以下改造：
-
-1. 补齐 `pyproject.toml` 依赖声明，统一环境安装方式。
-2. 将 mock 工具替换为真实接口或可配置数据源。
-3. 为知识库构建增加“全量重建 / 增量更新 / 删除旧索引”能力。
-4. 增加基础单元测试和集成测试。
-5. 清理仓库中的本地运行产物，并补充 `.gitignore`。
-6. 将报告数据读取逻辑替换为更稳健的 CSV / 数据库访问实现。
-
-## 12. 快速体验建议
+## 10. 快速体验建议
 
 首次运行推荐按下面顺序操作：
 
@@ -275,12 +252,4 @@ python rag/vector_store.py
 5. 测试报告生成，例如：
    - “给我生成我的使用报告”
 
-## 13. 说明
-
-本项目当前定位为本地可运行的 LLM 应用原型，适合用于：
-
-- 学习 Agent + Tool Calling 的基本模式
-- 理解 RAG 检索增强应用结构
-- 演示 Prompt 切换与运行时上下文注入
-- 作为后续业务化改造的起点
 
