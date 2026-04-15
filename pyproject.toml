@@ -1,6 +1,17 @@
 [project]
 name = "pythonproject2"
 version = "0.1.0"
-description = "Add your description here"
+description = "LangChain + Streamlit based intelligent customer service and RAG report generation demo"
 requires-python = ">=3.11"
-dependencies = []
+dependencies = [
+    "langchain",
+    "langchain-chroma",
+    "langchain-community",
+    "langchain-core",
+    "langchain-ollama",
+    "langchain-text-splitters",
+    "langgraph",
+    "pypdf",
+    "pyyaml",
+    "streamlit",
+]
