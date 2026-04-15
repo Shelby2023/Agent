@@ -1,0 +1,359 @@
+2026-03-28 17:00:07,572 - agent - ERROR - file_handler.py:38 - [listdir_with_allowed_type]data不是文件夹！
+2026-03-28 17:00:07,572 - agent - ERROR - file_handler.py:11 - [md5计算]文件txt不存在！
+2026-03-28 17:00:07,572 - agent - WARNING - vector_store.py:77 - 【加载知识库】txt内容没有有效文本，跳过。
+2026-03-28 17:00:07,573 - agent - ERROR - file_handler.py:11 - [md5计算]文件pdf不存在！
+2026-03-28 17:00:07,573 - agent - WARNING - vector_store.py:77 - 【加载知识库】pdf内容没有有效文本，跳过。
+2026-03-28 17:01:20,504 - agent - ERROR - file_handler.py:38 - [listdir_with_allowed_type]data不是文件夹！
+2026-03-28 17:01:20,505 - agent - ERROR - file_handler.py:11 - [md5计算]文件txt不存在！
+2026-03-28 17:01:20,505 - agent - WARNING - vector_store.py:77 - 【加载知识库】txt内容没有有效文本，跳过。
+2026-03-28 17:01:20,505 - agent - ERROR - file_handler.py:11 - [md5计算]文件pdf不存在！
+2026-03-28 17:01:20,505 - agent - WARNING - vector_store.py:77 - 【加载知识库】pdf内容没有有效文本，跳过。
+2026-03-28 17:03:46,623 - agent - ERROR - vector_store.py:94 - 【加载知识库】D:\AgentScope\PythonProject2\data\扫地机器人100问.pdf加载失败。
+Traceback (most recent call last):
+  File "D:\AgentScope\PythonProject2\.venv\Lib\site-packages\langchain_community\document_loaders\parsers\pdf.py", line 359, in lazy_parse
+    import pypdf
+ModuleNotFoundError: No module named 'pypdf'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\AgentScope\PythonProject2\rag\vector_store.py", line 75, in load_document
+    documents = get_file_documents(path)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AgentScope\PythonProject2\rag\vector_store.py", line 58, in get_file_documents
+    return pdf_loader(read_path)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AgentScope\PythonProject2\utils\file_handler.py", line 49, in pdf_loader
+    return PyPDFLoader(file_path,passwd).load()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AgentScope\PythonProject2\.venv\Lib\site-packages\langchain_core\document_loaders\base.py", line 43, in load
+    return list(self.lazy_load())
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AgentScope\PythonProject2\.venv\Lib\site-packages\langchain_community\document_loaders\pdf.py", line 305, in lazy_load
+    yield from self.parser.lazy_parse(blob)
+  File "D:\AgentScope\PythonProject2\.venv\Lib\site-packages\langchain_community\document_loaders\parsers\pdf.py", line 361, in lazy_parse
+    raise ImportError(
+ImportError: `pypdf` package not found, please install it with `pip install pypdf`
+2026-03-28 17:03:46,626 - agent - ERROR - vector_store.py:94 - 【加载知识库】D:\AgentScope\PythonProject2\data\扫地机器人100问2.txt加载失败。
+Traceback (most recent call last):
+  File "D:\AgentScope\PythonProject2\.venv\Lib\site-packages\langchain_community\document_loaders\text.py", line 43, in lazy_load
+    text = f.read()
+           ^^^^^^^^
+  File "C:\Users\10072\AppData\Roaming\uv\python\cpython-3.11.12-windows-x86_64-none\Lib\encodings\cp1252.py", line 23, in decode
+    return codecs.charmap_decode(input,self.errors,decoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'charmap' codec can't decode byte 0x81 in position 22: character maps to <undefined>
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AgentScope\PythonProject2\rag\vector_store.py", line 75, in load_document
+    documents = get_file_documents(path)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AgentScope\PythonProject2\rag\vector_store.py", line 55, in get_file_documents
+    return txt_loader(read_path)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AgentScope\PythonProject2\utils\file_handler.py", line 53, in txt_loader
+    return TextLoader(file_path).load()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AgentScope\PythonProject2\.venv\Lib\site-packages\langchain_core\document_loaders\base.py", line 43, in load
+    return list(self.lazy_load())
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AgentScope\PythonProject2\.venv\Lib\site-packages\langchain_community\document_loaders\text.py", line 56, in lazy_load
+    raise RuntimeError(f"Error loading {self.file_path}") from e
+RuntimeError: Error loading D:\AgentScope\PythonProject2\data\扫地机器人100问2.txt
+2026-03-28 17:03:46,629 - agent - ERROR - vector_store.py:94 - 【加载知识库】D:\AgentScope\PythonProject2\data\扫拖一体机器人100问.txt加载失败。
+Traceback (most recent call last):
+  File "D:\AgentScope\PythonProject2\.venv\Lib\site-packages\langchain_community\document_loaders\text.py", line 43, in lazy_load
+    text = f.read()
+           ^^^^^^^^
+  File "C:\Users\10072\AppData\Roaming\uv\python\cpython-3.11.12-windows-x86_64-none\Lib\encodings\cp1252.py", line 23, in decode
+    return codecs.charmap_decode(input,self.errors,decoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'charmap' codec can't decode byte 0x81 in position 28: character maps to <undefined>
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AgentScope\PythonProject2\rag\vector_store.py", line 75, in load_document
+    documents = get_file_documents(path)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AgentScope\PythonProject2\rag\vector_store.py", line 55, in get_file_documents
+    return txt_loader(read_path)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AgentScope\PythonProject2\utils\file_handler.py", line 53, in txt_loader
+    return TextLoader(file_path).load()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AgentScope\PythonProject2\.venv\Lib\site-packages\langchain_core\document_loaders\base.py", line 43, in load
+    return list(self.lazy_load())
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AgentScope\PythonProject2\.venv\Lib\site-packages\langchain_community\document_loaders\text.py", line 56, in lazy_load
+    raise RuntimeError(f"Error loading {self.file_path}") from e
+RuntimeError: Error loading D:\AgentScope\PythonProject2\data\扫拖一体机器人100问.txt
+2026-03-28 17:03:46,632 - agent - ERROR - vector_store.py:94 - 【加载知识库】D:\AgentScope\PythonProject2\data\故障排除.txt加载失败。
+Traceback (most recent call last):
+  File "D:\AgentScope\PythonProject2\.venv\Lib\site-packages\langchain_community\document_loaders\text.py", line 43, in lazy_load
+    text = f.read()
+           ^^^^^^^^
+  File "C:\Users\10072\AppData\Roaming\uv\python\cpython-3.11.12-windows-x86_64-none\Lib\encodings\cp1252.py", line 23, in decode
+    return codecs.charmap_decode(input,self.errors,decoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'charmap' codec can't decode byte 0x8d in position 48: character maps to <undefined>
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AgentScope\PythonProject2\rag\vector_store.py", line 75, in load_document
+    documents = get_file_documents(path)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AgentScope\PythonProject2\rag\vector_store.py", line 55, in get_file_documents
+    return txt_loader(read_path)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AgentScope\PythonProject2\utils\file_handler.py", line 53, in txt_loader
+    return TextLoader(file_path).load()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AgentScope\PythonProject2\.venv\Lib\site-packages\langchain_core\document_loaders\base.py", line 43, in load
+    return list(self.lazy_load())
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AgentScope\PythonProject2\.venv\Lib\site-packages\langchain_community\document_loaders\text.py", line 56, in lazy_load
+    raise RuntimeError(f"Error loading {self.file_path}") from e
+RuntimeError: Error loading D:\AgentScope\PythonProject2\data\故障排除.txt
+2026-03-28 17:03:46,633 - agent - ERROR - vector_store.py:94 - 【加载知识库】D:\AgentScope\PythonProject2\data\维护保养.txt加载失败。
+Traceback (most recent call last):
+  File "D:\AgentScope\PythonProject2\.venv\Lib\site-packages\langchain_community\document_loaders\text.py", line 43, in lazy_load
+    text = f.read()
+           ^^^^^^^^
+  File "C:\Users\10072\AppData\Roaming\uv\python\cpython-3.11.12-windows-x86_64-none\Lib\encodings\cp1252.py", line 23, in decode
+    return codecs.charmap_decode(input,self.errors,decoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'charmap' codec can't decode byte 0x9d in position 48: character maps to <undefined>
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AgentScope\PythonProject2\rag\vector_store.py", line 75, in load_document
+    documents = get_file_documents(path)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AgentScope\PythonProject2\rag\vector_store.py", line 55, in get_file_documents
+    return txt_loader(read_path)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AgentScope\PythonProject2\utils\file_handler.py", line 53, in txt_loader
+    return TextLoader(file_path).load()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AgentScope\PythonProject2\.venv\Lib\site-packages\langchain_core\document_loaders\base.py", line 43, in load
+    return list(self.lazy_load())
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AgentScope\PythonProject2\.venv\Lib\site-packages\langchain_community\document_loaders\text.py", line 56, in lazy_load
+    raise RuntimeError(f"Error loading {self.file_path}") from e
+RuntimeError: Error loading D:\AgentScope\PythonProject2\data\维护保养.txt
+2026-03-28 17:03:46,635 - agent - ERROR - vector_store.py:94 - 【加载知识库】D:\AgentScope\PythonProject2\data\选购指南.txt加载失败。
+Traceback (most recent call last):
+  File "D:\AgentScope\PythonProject2\.venv\Lib\site-packages\langchain_community\document_loaders\text.py", line 43, in lazy_load
+    text = f.read()
+           ^^^^^^^^
+  File "C:\Users\10072\AppData\Roaming\uv\python\cpython-3.11.12-windows-x86_64-none\Lib\encodings\cp1252.py", line 23, in decode
+    return codecs.charmap_decode(input,self.errors,decoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'charmap' codec can't decode byte 0x8d in position 38: character maps to <undefined>
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AgentScope\PythonProject2\rag\vector_store.py", line 75, in load_document
+    documents = get_file_documents(path)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AgentScope\PythonProject2\rag\vector_store.py", line 55, in get_file_documents
+    return txt_loader(read_path)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AgentScope\PythonProject2\utils\file_handler.py", line 53, in txt_loader
+    return TextLoader(file_path).load()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AgentScope\PythonProject2\.venv\Lib\site-packages\langchain_core\document_loaders\base.py", line 43, in load
+    return list(self.lazy_load())
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AgentScope\PythonProject2\.venv\Lib\site-packages\langchain_community\document_loaders\text.py", line 56, in lazy_load
+    raise RuntimeError(f"Error loading {self.file_path}") from e
+RuntimeError: Error loading D:\AgentScope\PythonProject2\data\选购指南.txt
+2026-03-28 17:05:10,321 - agent - INFO - vector_store.py:91 - 【加载知识库】D:\AgentScope\PythonProject2\data\扫地机器人100问.pdf加载内容成功。
+2026-03-28 17:05:10,322 - agent - ERROR - vector_store.py:94 - 【加载知识库】D:\AgentScope\PythonProject2\data\扫地机器人100问2.txt加载失败。
+Traceback (most recent call last):
+  File "D:\AgentScope\PythonProject2\.venv\Lib\site-packages\langchain_community\document_loaders\text.py", line 43, in lazy_load
+    text = f.read()
+           ^^^^^^^^
+  File "C:\Users\10072\AppData\Roaming\uv\python\cpython-3.11.12-windows-x86_64-none\Lib\encodings\cp1252.py", line 23, in decode
+    return codecs.charmap_decode(input,self.errors,decoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'charmap' codec can't decode byte 0x81 in position 22: character maps to <undefined>
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AgentScope\PythonProject2\rag\vector_store.py", line 75, in load_document
+    documents = get_file_documents(path)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AgentScope\PythonProject2\rag\vector_store.py", line 55, in get_file_documents
+    return txt_loader(read_path)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AgentScope\PythonProject2\utils\file_handler.py", line 53, in txt_loader
+    return TextLoader(file_path).load()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AgentScope\PythonProject2\.venv\Lib\site-packages\langchain_core\document_loaders\base.py", line 43, in load
+    return list(self.lazy_load())
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AgentScope\PythonProject2\.venv\Lib\site-packages\langchain_community\document_loaders\text.py", line 56, in lazy_load
+    raise RuntimeError(f"Error loading {self.file_path}") from e
+RuntimeError: Error loading D:\AgentScope\PythonProject2\data\扫地机器人100问2.txt
+2026-03-28 17:05:10,323 - agent - ERROR - vector_store.py:94 - 【加载知识库】D:\AgentScope\PythonProject2\data\扫拖一体机器人100问.txt加载失败。
+Traceback (most recent call last):
+  File "D:\AgentScope\PythonProject2\.venv\Lib\site-packages\langchain_community\document_loaders\text.py", line 43, in lazy_load
+    text = f.read()
+           ^^^^^^^^
+  File "C:\Users\10072\AppData\Roaming\uv\python\cpython-3.11.12-windows-x86_64-none\Lib\encodings\cp1252.py", line 23, in decode
+    return codecs.charmap_decode(input,self.errors,decoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'charmap' codec can't decode byte 0x81 in position 28: character maps to <undefined>
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AgentScope\PythonProject2\rag\vector_store.py", line 75, in load_document
+    documents = get_file_documents(path)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AgentScope\PythonProject2\rag\vector_store.py", line 55, in get_file_documents
+    return txt_loader(read_path)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AgentScope\PythonProject2\utils\file_handler.py", line 53, in txt_loader
+    return TextLoader(file_path).load()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AgentScope\PythonProject2\.venv\Lib\site-packages\langchain_core\document_loaders\base.py", line 43, in load
+    return list(self.lazy_load())
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AgentScope\PythonProject2\.venv\Lib\site-packages\langchain_community\document_loaders\text.py", line 56, in lazy_load
+    raise RuntimeError(f"Error loading {self.file_path}") from e
+RuntimeError: Error loading D:\AgentScope\PythonProject2\data\扫拖一体机器人100问.txt
+2026-03-28 17:05:10,324 - agent - ERROR - vector_store.py:94 - 【加载知识库】D:\AgentScope\PythonProject2\data\故障排除.txt加载失败。
+Traceback (most recent call last):
+  File "D:\AgentScope\PythonProject2\.venv\Lib\site-packages\langchain_community\document_loaders\text.py", line 43, in lazy_load
+    text = f.read()
+           ^^^^^^^^
+  File "C:\Users\10072\AppData\Roaming\uv\python\cpython-3.11.12-windows-x86_64-none\Lib\encodings\cp1252.py", line 23, in decode
+    return codecs.charmap_decode(input,self.errors,decoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'charmap' codec can't decode byte 0x8d in position 48: character maps to <undefined>
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AgentScope\PythonProject2\rag\vector_store.py", line 75, in load_document
+    documents = get_file_documents(path)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AgentScope\PythonProject2\rag\vector_store.py", line 55, in get_file_documents
+    return txt_loader(read_path)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AgentScope\PythonProject2\utils\file_handler.py", line 53, in txt_loader
+    return TextLoader(file_path).load()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AgentScope\PythonProject2\.venv\Lib\site-packages\langchain_core\document_loaders\base.py", line 43, in load
+    return list(self.lazy_load())
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AgentScope\PythonProject2\.venv\Lib\site-packages\langchain_community\document_loaders\text.py", line 56, in lazy_load
+    raise RuntimeError(f"Error loading {self.file_path}") from e
+RuntimeError: Error loading D:\AgentScope\PythonProject2\data\故障排除.txt
+2026-03-28 17:05:10,325 - agent - ERROR - vector_store.py:94 - 【加载知识库】D:\AgentScope\PythonProject2\data\维护保养.txt加载失败。
+Traceback (most recent call last):
+  File "D:\AgentScope\PythonProject2\.venv\Lib\site-packages\langchain_community\document_loaders\text.py", line 43, in lazy_load
+    text = f.read()
+           ^^^^^^^^
+  File "C:\Users\10072\AppData\Roaming\uv\python\cpython-3.11.12-windows-x86_64-none\Lib\encodings\cp1252.py", line 23, in decode
+    return codecs.charmap_decode(input,self.errors,decoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'charmap' codec can't decode byte 0x9d in position 48: character maps to <undefined>
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AgentScope\PythonProject2\rag\vector_store.py", line 75, in load_document
+    documents = get_file_documents(path)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AgentScope\PythonProject2\rag\vector_store.py", line 55, in get_file_documents
+    return txt_loader(read_path)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AgentScope\PythonProject2\utils\file_handler.py", line 53, in txt_loader
+    return TextLoader(file_path).load()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AgentScope\PythonProject2\.venv\Lib\site-packages\langchain_core\document_loaders\base.py", line 43, in load
+    return list(self.lazy_load())
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AgentScope\PythonProject2\.venv\Lib\site-packages\langchain_community\document_loaders\text.py", line 56, in lazy_load
+    raise RuntimeError(f"Error loading {self.file_path}") from e
+RuntimeError: Error loading D:\AgentScope\PythonProject2\data\维护保养.txt
+2026-03-28 17:05:10,326 - agent - ERROR - vector_store.py:94 - 【加载知识库】D:\AgentScope\PythonProject2\data\选购指南.txt加载失败。
+Traceback (most recent call last):
+  File "D:\AgentScope\PythonProject2\.venv\Lib\site-packages\langchain_community\document_loaders\text.py", line 43, in lazy_load
+    text = f.read()
+           ^^^^^^^^
+  File "C:\Users\10072\AppData\Roaming\uv\python\cpython-3.11.12-windows-x86_64-none\Lib\encodings\cp1252.py", line 23, in decode
+    return codecs.charmap_decode(input,self.errors,decoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'charmap' codec can't decode byte 0x8d in position 38: character maps to <undefined>
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AgentScope\PythonProject2\rag\vector_store.py", line 75, in load_document
+    documents = get_file_documents(path)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AgentScope\PythonProject2\rag\vector_store.py", line 55, in get_file_documents
+    return txt_loader(read_path)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AgentScope\PythonProject2\utils\file_handler.py", line 53, in txt_loader
+    return TextLoader(file_path).load()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AgentScope\PythonProject2\.venv\Lib\site-packages\langchain_core\document_loaders\base.py", line 43, in load
+    return list(self.lazy_load())
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AgentScope\PythonProject2\.venv\Lib\site-packages\langchain_community\document_loaders\text.py", line 56, in lazy_load
+    raise RuntimeError(f"Error loading {self.file_path}") from e
+RuntimeError: Error loading D:\AgentScope\PythonProject2\data\选购指南.txt
+2026-03-28 17:07:52,326 - agent - INFO - vector_store.py:72 - 【加载知识库】D:\AgentScope\PythonProject2\data\扫地机器人100问.pdf内容已存在，跳过。
+2026-03-28 17:07:55,481 - agent - INFO - vector_store.py:91 - 【加载知识库】D:\AgentScope\PythonProject2\data\扫地机器人100问2.txt加载内容成功。
+2026-03-28 17:07:58,810 - agent - INFO - vector_store.py:91 - 【加载知识库】D:\AgentScope\PythonProject2\data\扫拖一体机器人100问.txt加载内容成功。
+2026-03-28 17:08:04,822 - agent - INFO - vector_store.py:91 - 【加载知识库】D:\AgentScope\PythonProject2\data\故障排除.txt加载内容成功。
+2026-03-28 17:08:08,897 - agent - INFO - vector_store.py:91 - 【加载知识库】D:\AgentScope\PythonProject2\data\维护保养.txt加载内容成功。
+2026-03-28 17:08:12,577 - agent - INFO - vector_store.py:91 - 【加载知识库】D:\AgentScope\PythonProject2\data\选购指南.txt加载内容成功。
+2026-03-28 17:11:35,104 - agent - INFO - vector_store.py:72 - 【加载知识库】D:\AgentScope\PythonProject2\data\扫地机器人100问.pdf内容已存在，跳过。
+2026-03-28 17:11:35,104 - agent - INFO - vector_store.py:72 - 【加载知识库】D:\AgentScope\PythonProject2\data\扫地机器人100问2.txt内容已存在，跳过。
+2026-03-28 17:11:35,104 - agent - INFO - vector_store.py:72 - 【加载知识库】D:\AgentScope\PythonProject2\data\扫拖一体机器人100问.txt内容已存在，跳过。
+2026-03-28 17:11:35,105 - agent - INFO - vector_store.py:72 - 【加载知识库】D:\AgentScope\PythonProject2\data\故障排除.txt内容已存在，跳过。
+2026-03-28 17:11:35,105 - agent - INFO - vector_store.py:72 - 【加载知识库】D:\AgentScope\PythonProject2\data\维护保养.txt内容已存在，跳过。
+2026-03-28 17:11:35,106 - agent - INFO - vector_store.py:72 - 【加载知识库】D:\AgentScope\PythonProject2\data\选购指南.txt内容已存在，跳过。
+2026-03-28 17:17:51,927 - agent - INFO - vector_store.py:72 - 【加载知识库】D:\AgentScope\PythonProject2\data\扫地机器人100问.pdf内容已存在，跳过。
+2026-03-28 17:17:51,928 - agent - INFO - vector_store.py:72 - 【加载知识库】D:\AgentScope\PythonProject2\data\扫地机器人100问2.txt内容已存在，跳过。
+2026-03-28 17:17:51,928 - agent - INFO - vector_store.py:72 - 【加载知识库】D:\AgentScope\PythonProject2\data\扫拖一体机器人100问.txt内容已存在，跳过。
+2026-03-28 17:17:51,929 - agent - INFO - vector_store.py:72 - 【加载知识库】D:\AgentScope\PythonProject2\data\故障排除.txt内容已存在，跳过。
+2026-03-28 17:17:51,929 - agent - INFO - vector_store.py:72 - 【加载知识库】D:\AgentScope\PythonProject2\data\维护保养.txt内容已存在，跳过。
+2026-03-28 17:17:51,929 - agent - INFO - vector_store.py:72 - 【加载知识库】D:\AgentScope\PythonProject2\data\选购指南.txt内容已存在，跳过。
+2026-03-28 17:23:34,144 - agent - INFO - vector_store.py:72 - 【加载知识库】D:\AgentScope\PythonProject2\data\扫地机器人100问.pdf内容已存在，跳过。
+2026-03-28 17:23:34,145 - agent - INFO - vector_store.py:72 - 【加载知识库】D:\AgentScope\PythonProject2\data\扫地机器人100问2.txt内容已存在，跳过。
+2026-03-28 17:23:34,145 - agent - INFO - vector_store.py:72 - 【加载知识库】D:\AgentScope\PythonProject2\data\扫拖一体机器人100问.txt内容已存在，跳过。
+2026-03-28 17:23:34,146 - agent - INFO - vector_store.py:72 - 【加载知识库】D:\AgentScope\PythonProject2\data\故障排除.txt内容已存在，跳过。
+2026-03-28 17:23:34,146 - agent - INFO - vector_store.py:72 - 【加载知识库】D:\AgentScope\PythonProject2\data\维护保养.txt内容已存在，跳过。
+2026-03-28 17:23:34,146 - agent - INFO - vector_store.py:72 - 【加载知识库】D:\AgentScope\PythonProject2\data\选购指南.txt内容已存在，跳过。
+2026-03-28 17:25:59,191 - agent - INFO - vector_store.py:74 - [加载知识库]D:\AgentScope\PythonProject2\data\扫地机器人100问.pdf内容已经存在知识库内，跳过
+2026-03-28 17:25:59,191 - agent - INFO - vector_store.py:74 - [加载知识库]D:\AgentScope\PythonProject2\data\扫地机器人100问2.txt内容已经存在知识库内，跳过
+2026-03-28 17:25:59,192 - agent - INFO - vector_store.py:74 - [加载知识库]D:\AgentScope\PythonProject2\data\扫拖一体机器人100问.txt内容已经存在知识库内，跳过
+2026-03-28 17:25:59,192 - agent - INFO - vector_store.py:74 - [加载知识库]D:\AgentScope\PythonProject2\data\故障排除.txt内容已经存在知识库内，跳过
+2026-03-28 17:25:59,192 - agent - INFO - vector_store.py:74 - [加载知识库]D:\AgentScope\PythonProject2\data\维护保养.txt内容已经存在知识库内，跳过
+2026-03-28 17:25:59,193 - agent - INFO - vector_store.py:74 - [加载知识库]D:\AgentScope\PythonProject2\data\选购指南.txt内容已经存在知识库内，跳过
+2026-03-28 17:26:40,474 - agent - INFO - vector_store.py:72 - 【加载知识库】D:\AgentScope\PythonProject2\data\扫地机器人100问.pdf内容已存在，跳过。
+2026-03-28 17:26:40,474 - agent - INFO - vector_store.py:72 - 【加载知识库】D:\AgentScope\PythonProject2\data\扫地机器人100问2.txt内容已存在，跳过。
+2026-03-28 17:26:40,474 - agent - INFO - vector_store.py:72 - 【加载知识库】D:\AgentScope\PythonProject2\data\扫拖一体机器人100问.txt内容已存在，跳过。
+2026-03-28 17:26:40,475 - agent - INFO - vector_store.py:72 - 【加载知识库】D:\AgentScope\PythonProject2\data\故障排除.txt内容已存在，跳过。
+2026-03-28 17:26:40,476 - agent - INFO - vector_store.py:72 - 【加载知识库】D:\AgentScope\PythonProject2\data\维护保养.txt内容已存在，跳过。
+2026-03-28 17:26:40,476 - agent - INFO - vector_store.py:72 - 【加载知识库】D:\AgentScope\PythonProject2\data\选购指南.txt内容已存在，跳过。
+2026-03-28 17:27:15,386 - agent - INFO - vector_store.py:72 - 【加载知识库】D:\AgentScope\PythonProject2\data\扫地机器人100问.pdf内容已存在，跳过。
+2026-03-28 17:27:15,387 - agent - INFO - vector_store.py:72 - 【加载知识库】D:\AgentScope\PythonProject2\data\扫地机器人100问2.txt内容已存在，跳过。
+2026-03-28 17:27:15,387 - agent - INFO - vector_store.py:72 - 【加载知识库】D:\AgentScope\PythonProject2\data\扫拖一体机器人100问.txt内容已存在，跳过。
+2026-03-28 17:27:15,387 - agent - INFO - vector_store.py:72 - 【加载知识库】D:\AgentScope\PythonProject2\data\故障排除.txt内容已存在，跳过。
+2026-03-28 17:27:15,388 - agent - INFO - vector_store.py:72 - 【加载知识库】D:\AgentScope\PythonProject2\data\维护保养.txt内容已存在，跳过。
+2026-03-28 17:27:15,388 - agent - INFO - vector_store.py:72 - 【加载知识库】D:\AgentScope\PythonProject2\data\选购指南.txt内容已存在，跳过。
